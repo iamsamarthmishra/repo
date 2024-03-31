@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../consts/colors.dart';
-import '../../consts/strings.dart';
-import '../../widgets_common/normal_text.dart';
+import '../../const/colors.dart';
+import '../../const/strings.dart';
+import '../../widgets/normal_text.dart';
 import 'components/chat_bubble.dart';
 
 class ChatScreen extends StatelessWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../consts/colors.dart';
-import '../../../widgets_common/normal_text.dart';
+import '../../../const/colors.dart';
+import '../../../widgets/normal_text.dart';
 
 Widget orderPlaceDetails({required String title1, required String title2, required String d1, required String d2}) {
   return Padding(

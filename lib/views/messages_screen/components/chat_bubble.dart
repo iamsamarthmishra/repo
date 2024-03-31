@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:emart_app/consts/consts.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-import '../../../widgets_common/normal_text.dart';
+import '../../../const/const.dart';
+import '../../../widgets/normal_text.dart';
 
 Widget chatBuddle() {
   return Directionality(

@@ -1,20 +1,30 @@
+import 'package:emart_seller/controller/product_controller.dart';
+import 'package:get/get.dart';
 
+import '../../../const/const.dart';
+import '../../../widgets/normal_text.dart';
 
-import 'package:emart_app/consts/consts.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import '../../../consts/colors.dart';
-import '../../../widgets_common/normal_text.dart';
-
-Widget productDropdown() {
-  return DropdownButtonHideUnderline(
-      child:  DropdownButton<String>(
-        hint: normalText(text: "Choose Category", color: fontGrey),
-        value: null,
+Widget productDropdown(hint, List<String> list, dropvalue, ProductsController controller) {
+  return Obx(
+        () => DropdownButtonHideUnderline(
+      child: DropdownButton(
+        hint: normalText(text: "$hint", color: fontGrey),
+        value: dropvalue == '' ? null : dropvalue.value,
         isExpanded: true,
-        items: const [],
-        onChanged: (value) {},
+        items: list.map((e) {
+          return DropdownMenuItem(
+            value: e,
+            child: e.toString().text.make(),
+          );
+        }).toList(),
+        onChanged: (newValue) {
+          if (hint == "Category") {
+            controller.subcategoryvalue.value = '';
+            controller.populateSubcategoryList(newValue.toString());
+          }
+          dropvalue.value = newValue.toString();
+        },
       ),
-  ).box.white.padding(const EdgeInsets.symmetric(horizontal: 5)).roundedSM.make();
+    ).box.white.padding(const EdgeInsets.symmetric(horizontal: 5)).roundedSM.make(),
+  );
 }

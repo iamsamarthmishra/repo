@@ -1,12 +1,14 @@
-import 'package:emart_app/consts/consts.dart';
-import 'package:emart_app/controllers/home_controller.dart';
-import 'package:emart_app/views/home_screen/home_screen.dart';
-import 'package:emart_app/views/profile_screen/profile_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:emart_seller/const/const.dart';
+import 'package:emart_seller/controller/home_controller.dart';
+import 'package:emart_seller/widgets/normal_text.dart';
 import 'package:get/get.dart';
 
+import '../../const/images.dart';
 import '../order_screen/order_screen.dart';
 import '../product_screen/product_screen.dart';
+import '../profile_screen/profile_screen.dart';
+import 'home_screen.dart';
+
 
 class Home extends StatelessWidget {
   const Home({super.key});

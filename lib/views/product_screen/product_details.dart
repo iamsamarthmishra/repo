@@ -1,18 +1,19 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-import '../../consts/colors.dart';
-import '../../consts/consts.dart';
-import '../../widgets_common/normal_text.dart';
+
+import '../../const/colors.dart';
+import '../../const/const.dart';
+import '../../const/images.dart';
+import '../../widgets/normal_text.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  final dynamic data;
+  const ProductDetails({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: boldText(text: "Product Title", color: fontGrey),
+        title: boldText(text: "${data['p_name']}", color: fontGrey),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -20,17 +21,16 @@ class ProductDetails extends StatelessWidget {
             VxSwiper.builder(
               autoPlay: true,
               height: 350,
-              itemCount: 3,
+              itemCount: data['p_img'].length,
               aspectRatio: 16 / 9,
               viewportFraction: 1.0,
               itemBuilder: (context, index) {
                 //BorderRadius borderRadius = BorderRadius.zero;
                 // Add your image widget here
-                return Image.asset
+                return Image.network(
                 //network
-                  (
-                  imgProduct,
-                  //data['p_img'][index],
+
+                  data['p_img'][index],
                   width: double.infinity,
                   fit: BoxFit.cover,
                 );
@@ -42,7 +42,7 @@ class ProductDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   boldText(
-                    text: "Product Name",
+                    text: "${data['p_name']}",
                     color: fontGrey,
                     size: 20.0,
                   ).py8(),
@@ -50,9 +50,9 @@ class ProductDetails extends StatelessWidget {
                   10.heightBox,
                   Row(
                     children: [
-                      boldText(text: "Category", color: fontGrey, size: 16.0),
+                      boldText(text: "${data['p_category']}", color: fontGrey, size: 16.0),
                       10.widthBox,
-                      boldText(text: "Sub Category", color: fontGrey, size: 16.0),
+                      boldText(text: "${data['p_subcategory']}", color: fontGrey, size: 16.0),
                     ],
                   ),
 
@@ -82,14 +82,14 @@ class ProductDetails extends StatelessWidget {
                     ],
                   ).py8(),
                   boldText(
-                    text: "\$50", // Change to your product price
+                    text: "${data['p_price']}", // Change to your product price
                     color: fontGrey,
                     size: 18.0,
                   ).py8(),
                   Row(
                     children: [
                       boldText(
-                        text: "Quantity: ",
+                        text: "${data['p_quantity']}",
                         color: fontGrey,
                       ),
                       // Add your quantity widget here
@@ -97,13 +97,13 @@ class ProductDetails extends StatelessWidget {
                     ],
                   ).py8(),
                   boldText(
-                    text: "Description",
+                    text: "${data['p_des']}",
                     color: fontGrey,
                     size: 16.0,
                   ).py8(),
                   normalText(
                     text:
-                    "Product Description", // Change to your product description
+                    "${data['p_sdes']}", // Change to your product description
                     color: fontGrey,
                   ).py8(),
                 ],

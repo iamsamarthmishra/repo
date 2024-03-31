@@ -1,18 +1,15 @@
-
-import 'package:emart_app/views/auth_screen/login_screen.dart';
-import 'package:emart_app/views/home_screen/home.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:emart_seller/const/const.dart';
+import 'package:emart_seller/views/auth_screen/login_screen.dart';
+import 'package:emart_seller/views/home_screen/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'consts/consts.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await FirebaseAppCheck.instance.activate();
   runApp(const MyApp());
 }
 
@@ -23,8 +20,14 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-  class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
   var isLoggedin = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkUser(); // Move checkUser() call here
+  }
 
   checkUser() async {
     auth.authStateChanges().listen((User? user) {
@@ -36,23 +39,16 @@ class MyApp extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    //using getx need to change this material app into get material app 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: appname,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(
-
-          //to set app bar icon color
-            iconTheme: IconThemeData(
-                color: darkFontGrey
-            ),
-            elevation: 0.0,
-            backgroundColor: Colors.transparent),
-      ),
       home: isLoggedin ? const Home() : const LoginScreen(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+        ),
+      ),
     );
   }
 }

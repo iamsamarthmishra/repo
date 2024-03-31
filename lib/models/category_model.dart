@@ -2,45 +2,33 @@
 //
 //     final categoryModel = categoryModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 CategoryModel categoryModelFromJson(String str) => CategoryModel.fromJson(json.decode(str));
 
-// String categoryModelToJson(CategoryModel data) => json.encode(data.toJson());
-
 class CategoryModel {
-  List<Category> categories;
-
   CategoryModel({
     required this.categories,
   });
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
-    categories: List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
-  );
+  List<Category> categories;
 
-  // Map<String, dynamic> toJson() => {
-  //   "categories": List<dynamic>.from(categories.map((x) => x.toJson())),
-  // };
+  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
+        categories: List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
+      );
 }
 
 class Category {
-  String name;
-  List<String> subcategory;
-
   Category({
     required this.name,
     required this.subcategory,
   });
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-    name: json["name"],
-    subcategory: List<String>.from(json["subcategory"].map((x) => x)),
-  );
+  String name;
+  List<String> subcategory;
 
-  // Map<String, dynamic> toJson() => {
-  //   "name": name,
-  //   "subcategory": List<dynamic>.from(subcategory.map((x) => x)),
-  // };
+  factory Category.fromJson(Map<String, dynamic> json) => Category(
+        name: json["name"],
+        subcategory: List<String>.from(json["subcategory"].map((x) => x)),
+      );
 }

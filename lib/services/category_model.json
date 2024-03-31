@@ -1,32 +1,32 @@
 {
-  "categories": [
-    {
-      "name": "Iron Window",
-      "subcategory": [
-        "Minimalist",
-        "Maximalist"
-      ]
-    },
-    {
-      "name": "Aluminium Door",
-      "subcategory": [
-        "Minimalist",
-        "Maximalist"
-      ]
-    },
-    {
-      "name": "Aluminium Window",
-      "subcategory": [
-        "Minimalist",
-        "Maximalist"
-      ]
-    },
-    {
-      "name": "Iron Door",
-      "subcategory": [
-        "Minimalist",
-        "Maximalist"
-      ]
-    }
-  ]
+    "categories": [
+        {
+            "name": "Iron Window",
+            "subcategory": [
+                "Minimalist",
+                "Maximalist"
+            ]
+        },
+        {
+            "name": "Aluminium Door",
+            "subcategory": [
+                "Minimalist",
+                "Maximalist"
+            ]
+        },
+        {
+            "name": "Aluminium Window",
+            "subcategory": [
+                "Minimalist",
+                "Maximalist"
+            ]
+        },
+        {
+            "name": "Iron Door",
+            "subcategory": [
+                "Minimalist",
+                "Maximalist"
+            ]
+        }
+    ]
 }
